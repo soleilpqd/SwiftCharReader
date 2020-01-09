@@ -1,0 +1,16 @@
+PODS:
+  - SwiftCharReader (1.0)
+
+DEPENDENCIES:
+  - SwiftCharReader (from `../`)
+
+EXTERNAL SOURCES:
+  SwiftCharReader:
+    :path: "../"
+
+SPEC CHECKSUMS:
+  SwiftCharReader: 89c6e75e4fe649e04105b86db239d8eb0276d269
+
+PODFILE CHECKSUM: 150f9fe47cb4d5c4cccdefe2ac2651c9a3c970fc
+
+COCOAPODS: 1.8.4
