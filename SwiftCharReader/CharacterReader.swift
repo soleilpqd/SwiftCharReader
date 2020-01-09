@@ -81,20 +81,20 @@ public func decodeUtf8(data: Data, handle: CharacterReaderHandleType) throws -> 
                 if curCharData.count == expectedBCount {
                     switch expectedBCount {
                     case 2:
-                        let binay: UInt16 = ((UInt16(curCharData[0]) << 6) & 0b0000011111000000) |
+                        let binary: UInt16 = ((UInt16(curCharData[0]) << 6) & 0b0000011111000000) |
                             (UInt16(curCharData[1]) & 0b0000000000111111)
-                        charCode = Unicode.Scalar(binay)
+                        charCode = Unicode.Scalar(binary)
                     case 3:
-                        let binay: UInt16 = ((UInt16(curCharData[0]) << 12) & 0b1111000000000000) |
+                        let binary: UInt16 = ((UInt16(curCharData[0]) << 12) & 0b1111000000000000) |
                             ((UInt16(curCharData[1]) << 6) & 0b0000111111000000) |
                             (UInt16(curCharData[2]) & 0b0000000000111111)
-                        charCode = Unicode.Scalar(binay)
+                        charCode = Unicode.Scalar(binary)
                     case 4:
-                        let binay: UInt32 = ((UInt32(curCharData[0]) << 18) & 0x001C0000) |
+                        let binary: UInt32 = ((UInt32(curCharData[0]) << 18) & 0x001C0000) |
                             ((UInt32(curCharData[1]) << 12) & 0x0003F000) |
                             ((UInt32(curCharData[2]) << 6) & 0x00000FC0) |
                             (UInt32(curCharData[3]) & 0x0000003F)
-                        charCode = Unicode.Scalar(binay)
+                        charCode = Unicode.Scalar(binary)
                     default:
                         break
                     }
