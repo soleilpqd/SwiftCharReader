@@ -17,8 +17,10 @@ public enum CharacterReaderError: Error {
     case corruptedData
 }
 
-/// Type for handle closure: (read character, byte count of this character) -> `true` to continue reading
+/// Type for character reader handle closure: (read character, byte count of this character) -> `true` to continue reading
 public typealias CharacterReaderHandleType = (Character, Int) -> Bool
+/// Type for segment reader handle closure: (read segment, byte count of given segment, index of given segment) -> `true` to continue reading
+public typealias SegmentReaderHandleType = (String, Int, Int) -> Bool
 
 public let kUtf8SingleBytePrefix: UInt8    = 0b00000000
 public let kUtf8SingleByteFilter: UInt8    = 0b10000000
@@ -126,7 +128,7 @@ public func decodeUtf8(data: Data, handle: CharacterReaderHandleType) throws -> 
 
  - Parameters:
    - path: Path to text file.
-   - bufferSize: Buffer size (byte) to load data from file
+   - bufferSize: Buffer size (byte) to load data from file.
    - handle: Closure to handle read character. Return `false` to stop reading (other way: return `true` to continue reading).
 */
 public func readUtf8(path: String, bufferSize: Int = 1024, handle: CharacterReaderHandleType) throws {
@@ -155,5 +157,38 @@ public func readUtf8(path: String, bufferSize: Int = 1024, handle: CharacterRead
     }
     if preData != nil {
         throw CharacterReaderError.unexpectedEOF
+    }
+}
+
+
+/**
+ Read UTF-8 text file character by character, notify when found given delimiter. May throw error.
+ This function runs in current thread & non-escaping.
+ Last line may not contain delimiter.
+
+ - Parameters:
+   - path: Path to text file.
+   - bufferSize: Buffer size (byte) to load data from file.
+   - delimiter: string to break the segment.
+   - handle: Closure to handle read segment of text. Return `false` to stop reading (other way: return `true` to continue reading).
+ */
+public func readUtf8(path: String, bufferSize: Int = 1024, delimiter: String, handle: SegmentReaderHandleType) throws {
+    var curSegment = ""
+    var curSegCount = 0
+    var curSegIndex = 0
+    try readUtf8(path: path, bufferSize: bufferSize, handle: { (char, count) -> Bool in
+        curSegment.append(char)
+        curSegCount += count
+        if curSegment.hasSuffix(delimiter) {
+            let result = handle(curSegment, curSegCount, curSegIndex)
+            curSegment = ""
+            curSegCount = 0
+            curSegIndex += 1
+            return result
+        }
+        return true
+    })
+    if curSegment.count > 0 {
+        _ = handle(curSegment, curSegCount, curSegIndex)
     }
 }

@@ -9,10 +9,9 @@
 import Cocoa
 import SwiftCharReader
 
-class ViewController: NSViewController {
+final class ViewController: NSViewController {
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
+    @IBAction private func charByCharButtonOnTap(_ sender: NSButton) {
         // `readUt8` runs in current thread & non-escaping.
         // This demo executes `readUt8` in a separated thread (using operation queue), print read character on main thread.
         let operationQueue = OperationQueue()
@@ -41,5 +40,25 @@ class ViewController: NSViewController {
             }
         }
     }
+
+    @IBAction private func lineByLineButtonOnTap(_ sender: NSButton) {
+        if let path = Bundle.main.path(forResource: "sample", ofType: "txt") {
+            print("BEGIN:", path)
+            var lineCount = 0
+            var byteCount = 0
+            do {
+                try readUtf8(path: path, delimiter: "\n", handle: { (line, count, index) -> Bool in
+                    lineCount += 1
+                    byteCount += count
+                    print(String(format: "%02d %@", index, line), separator: "", terminator: "")
+                    return true
+                })
+                print("\n => Lines: \(lineCount); Bytes: \(byteCount)")
+            } catch let err {
+                print(err)
+            }
+        }
+    }
+
 
 }

@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="vXZ-lx-hvc">
-    <device id="retina4_7" orientation="portrait">
-        <adaptation id="fullscreen"/>
-    </device>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15702" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="vXZ-lx-hvc">
+    <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15704"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -20,11 +18,34 @@
                     <view key="view" contentMode="scaleToFill" id="kh9-bI-dsS">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1eL-eh-XJg">
+                                <rect key="frame" x="142.5" y="50" width="90" height="30"/>
+                                <state key="normal" title="Char by Char"/>
+                                <connections>
+                                    <action selector="charByCharButtonOnTap:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="mvL-qf-Ly5"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Pd6-25-NaI">
+                                <rect key="frame" x="148.5" y="100" width="78" height="30"/>
+                                <state key="normal" title="Line by line"/>
+                                <connections>
+                                    <action selector="lineByLineButtonOnTap:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="TIX-rk-6kP"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="1eL-eh-XJg" firstAttribute="centerX" secondItem="kh9-bI-dsS" secondAttribute="centerX" id="MQT-Rx-tph"/>
+                            <constraint firstItem="Pd6-25-NaI" firstAttribute="centerX" secondItem="kh9-bI-dsS" secondAttribute="centerX" id="YN2-pU-fL5"/>
+                            <constraint firstItem="Pd6-25-NaI" firstAttribute="top" secondItem="1eL-eh-XJg" secondAttribute="bottom" constant="20" id="gOG-fT-YrV"/>
+                            <constraint firstItem="1eL-eh-XJg" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="50" id="iDd-4S-k2w"/>
+                        </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="135" y="134"/>
         </scene>
     </scenes>
 </document>

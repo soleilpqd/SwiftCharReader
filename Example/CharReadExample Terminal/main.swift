@@ -21,6 +21,7 @@ if CommandLine.argc > 1 {
 do {
     var charCount = 0
     var byteCount = 0
+    print("BEGIN Char by char:", path)
     try readUtf8(path: path, handle: { (char, count) -> Bool in
         charCount += 1
         byteCount += count
@@ -28,6 +29,21 @@ do {
         return true
     })
     print("\n => Chars: \(charCount); Bytes: \(byteCount)")
+} catch let err {
+    print(err)
+}
+
+do {
+    var lineCount = 0
+    var byteCount = 0
+    print("BEGIN Line by line:", path)
+    try readUtf8(path: path, delimiter: "\n", handle: { (line, count, index) -> Bool in
+        lineCount += 1
+        byteCount += count
+        print(String(format: "%02d %@", index, line), separator: "", terminator: "")
+        return true
+    })
+    print("\n => Lines: \(lineCount); Bytes: \(byteCount)")
 } catch let err {
     print(err)
 }
