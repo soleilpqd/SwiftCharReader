@@ -1,6 +1,15 @@
 use_frameworks!
-platform :ios, '8.0'
+
+def shared_pods
+  pod 'SwiftCharReader', :path => '../'
+end
 
 target 'SwiftCharReader_Example' do
-  pod 'SwiftCharReader', :path => '../'
+  platform :ios, '8.0'
+  shared_pods
+end
+
+target 'CharReadMac' do
+  platform :osx, '10.14'
+  shared_pods
 end

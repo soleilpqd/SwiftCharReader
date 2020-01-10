@@ -115,7 +115,7 @@ public func decodeUtf8(data: Data, handle: CharacterReaderHandleType) throws -> 
          }
     }
     if curCharData.count > 0 {
-        return (true, Data(bytes: curCharData))
+        return (true, Data(curCharData))
     }
     return (true, nil)
 }
