@@ -55,6 +55,10 @@
             argument = "&quot;${PROJECT_DIR}/SwiftCharReader/sample.txt&quot;"
             isEnabled = "YES">
          </CommandLineArgument>
+         <CommandLineArgument
+            argument = "&quot;${PROJECT_DIR}/SwiftCharReader/sample.csv&quot;"
+            isEnabled = "YES">
+         </CommandLineArgument>
       </CommandLineArguments>
    </LaunchAction>
    <ProfileAction

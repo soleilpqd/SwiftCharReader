@@ -7,15 +7,18 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2B0B83DE23C8D8D700312A7D /* CSVParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B0B83DC23C8D8D700312A7D /* CSVParser.swift */; };
+		2B0B83DF23C8D8D700312A7D /* CharacterReader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B0B83DD23C8D8D700312A7D /* CharacterReader.swift */; };
+		2B937FD523D0A8D900741D9A /* sample.csv in Resources */ = {isa = PBXBuildFile; fileRef = 2B937FD423D0A8D900741D9A /* sample.csv */; };
+		2B937FD923D0BA8100741D9A /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B937FD823D0BA8100741D9A /* WebViewController.swift */; };
 		2BC3E93723C73A6D00424DCF /* sample.txt in Resources */ = {isa = PBXBuildFile; fileRef = 2BC3E93623C73A6D00424DCF /* sample.txt */; };
 		2BDBE77B23C86B5900299EBA /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BDBE77A23C86B5900299EBA /* main.swift */; };
-		2BDBE78023C86D2300299EBA /* CharacterReader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BDBE77F23C86D2300299EBA /* CharacterReader.swift */; };
 		2BDBE78823C8761700299EBA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BDBE78723C8761700299EBA /* AppDelegate.swift */; };
 		2BDBE78A23C8761700299EBA /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BDBE78923C8761700299EBA /* ViewController.swift */; };
 		2BDBE78C23C8761800299EBA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2BDBE78B23C8761800299EBA /* Assets.xcassets */; };
 		2BDBE78F23C8761800299EBA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2BDBE78D23C8761800299EBA /* Main.storyboard */; };
 		2BDBE79523C8762300299EBA /* sample.txt in Resources */ = {isa = PBXBuildFile; fileRef = 2BC3E93623C73A6D00424DCF /* sample.txt */; };
-		389D5BE3D95AC5412CBA3001 /* Pods_CharReadMac.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D3691871C4969A0343FBB3C /* Pods_CharReadMac.framework */; };
+		2BFAF2DF23D1B67E00CAA63A /* Pods_CharReadMac.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2BFAF2DE23D1B67E00CAA63A /* Pods_CharReadMac.framework */; };
 		607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACD51AFB9204008FA782 /* AppDelegate.swift */; };
 		607FACD81AFB9204008FA782 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACD71AFB9204008FA782 /* ViewController.swift */; };
 		607FACDB1AFB9204008FA782 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 607FACD91AFB9204008FA782 /* Main.storyboard */; };
@@ -39,10 +42,14 @@
 /* Begin PBXFileReference section */
 		11D2AB83C91BE49627553189 /* Pods_SwiftCharReader_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SwiftCharReader_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1D3691871C4969A0343FBB3C /* Pods_CharReadMac.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CharReadMac.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		2B0B83DB23C8D6AD00312A7D /* SwiftCSVParser.podspec */ = {isa = PBXFileReference; lastKnownFileType = text; name = SwiftCSVParser.podspec; path = ../SwiftCSVParser.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		2B0B83DC23C8D8D700312A7D /* CSVParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CSVParser.swift; path = ../../Source/CSVParser.swift; sourceTree = "<group>"; };
+		2B0B83DD23C8D8D700312A7D /* CharacterReader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CharacterReader.swift; path = ../../Source/CharacterReader.swift; sourceTree = "<group>"; };
+		2B937FD423D0A8D900741D9A /* sample.csv */ = {isa = PBXFileReference; lastKnownFileType = text; path = sample.csv; sourceTree = "<group>"; };
+		2B937FD823D0BA8100741D9A /* WebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
 		2BC3E93623C73A6D00424DCF /* sample.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = sample.txt; sourceTree = "<group>"; };
 		2BDBE77823C86B5900299EBA /* CharReadExample */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = CharReadExample; sourceTree = BUILT_PRODUCTS_DIR; };
 		2BDBE77A23C86B5900299EBA /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
-		2BDBE77F23C86D2300299EBA /* CharacterReader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CharacterReader.swift; path = ../../SwiftCharReader/CharacterReader.swift; sourceTree = "<group>"; };
 		2BDBE78523C8761700299EBA /* CharReadMac.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CharReadMac.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2BDBE78723C8761700299EBA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2BDBE78923C8761700299EBA /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -50,6 +57,8 @@
 		2BDBE78E23C8761800299EBA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		2BDBE79023C8761800299EBA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2BDBE79123C8761800299EBA /* CharReadMac.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = CharReadMac.entitlements; sourceTree = "<group>"; };
+		2BFAF2DA23D1B64500CAA63A /* SwiftCSVParser.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = SwiftCSVParser.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		2BFAF2DE23D1B67E00CAA63A /* Pods_CharReadMac.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Pods_CharReadMac.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4FB392F28F50B38E90A43B05 /* Pods-SwiftCharReader_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftCharReader_Example.release.xcconfig"; path = "Target Support Files/Pods-SwiftCharReader_Example/Pods-SwiftCharReader_Example.release.xcconfig"; sourceTree = "<group>"; };
 		5539CA0A1CA04C22F8DE2125 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 		607FACD01AFB9204008FA782 /* SwiftCharReader_Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftCharReader_Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -81,7 +90,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				389D5BE3D95AC5412CBA3001 /* Pods_CharReadMac.framework in Frameworks */,
+				2BFAF2DF23D1B67E00CAA63A /* Pods_CharReadMac.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -100,7 +109,8 @@
 			isa = PBXGroup;
 			children = (
 				2BDBE77A23C86B5900299EBA /* main.swift */,
-				2BDBE77F23C86D2300299EBA /* CharacterReader.swift */,
+				2B0B83DD23C8D8D700312A7D /* CharacterReader.swift */,
+				2B0B83DC23C8D8D700312A7D /* CSVParser.swift */,
 			);
 			path = "CharReadExample Terminal";
 			sourceTree = "<group>";
@@ -121,6 +131,8 @@
 		2E1B43C40C4D213EF4D93CBA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				2BFAF2DE23D1B67E00CAA63A /* Pods_CharReadMac.framework */,
+				2BFAF2DA23D1B64500CAA63A /* SwiftCSVParser.framework */,
 				11D2AB83C91BE49627553189 /* Pods_SwiftCharReader_Example.framework */,
 				F5302F2EFA1FAA46C2819EF7 /* Pods_SwiftCharReader_Tests.framework */,
 				1D3691871C4969A0343FBB3C /* Pods_CharReadMac.framework */,
@@ -156,11 +168,13 @@
 			children = (
 				607FACD51AFB9204008FA782 /* AppDelegate.swift */,
 				607FACD71AFB9204008FA782 /* ViewController.swift */,
+				2B937FD823D0BA8100741D9A /* WebViewController.swift */,
 				607FACD91AFB9204008FA782 /* Main.storyboard */,
 				607FACDC1AFB9204008FA782 /* Images.xcassets */,
 				607FACDE1AFB9204008FA782 /* LaunchScreen.xib */,
 				607FACD31AFB9204008FA782 /* Supporting Files */,
 				2BC3E93623C73A6D00424DCF /* sample.txt */,
+				2B937FD423D0A8D900741D9A /* sample.csv */,
 			);
 			name = "Example for SwiftCharReader";
 			path = SwiftCharReader;
@@ -178,6 +192,7 @@
 			isa = PBXGroup;
 			children = (
 				B3C77CAF21EEFBD22706F86E /* SwiftCharReader.podspec */,
+				2B0B83DB23C8D6AD00312A7D /* SwiftCSVParser.podspec */,
 				5539CA0A1CA04C22F8DE2125 /* README.md */,
 				6ECE8EC7F080A886E0429105 /* LICENSE */,
 			);
@@ -320,6 +335,7 @@
 				607FACE01AFB9204008FA782 /* LaunchScreen.xib in Resources */,
 				2BC3E93723C73A6D00424DCF /* sample.txt in Resources */,
 				607FACDD1AFB9204008FA782 /* Images.xcassets in Resources */,
+				2B937FD523D0A8D900741D9A /* sample.csv in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -333,11 +349,11 @@
 			);
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-SwiftCharReader_Example/Pods-SwiftCharReader_Example-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/SwiftCharReader-iOS/SwiftCharReader.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftCSVParser-iOS/SwiftCSVParser.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftCharReader.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftCSVParser.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -395,11 +411,11 @@
 			);
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-CharReadMac/Pods-CharReadMac-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/SwiftCharReader-macOS/SwiftCharReader.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftCSVParser-macOS/SwiftCSVParser.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftCharReader.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftCSVParser.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -413,8 +429,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2BDBE78023C86D2300299EBA /* CharacterReader.swift in Sources */,
 				2BDBE77B23C86B5900299EBA /* main.swift in Sources */,
+				2B0B83DE23C8D8D700312A7D /* CSVParser.swift in Sources */,
+				2B0B83DF23C8D8D700312A7D /* CharacterReader.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -432,6 +449,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				607FACD81AFB9204008FA782 /* ViewController.swift in Sources */,
+				2B937FD923D0BA8100741D9A /* WebViewController.swift in Sources */,
 				607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -529,6 +547,7 @@
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
 				CODE_SIGN_ENTITLEMENTS = CharReadMac/CharReadMac.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEBUG_INFORMATION_FORMAT = dwarf;
@@ -560,6 +579,7 @@
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
 				CODE_SIGN_ENTITLEMENTS = CharReadMac/CharReadMac.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = 4VHMY5A5VD;

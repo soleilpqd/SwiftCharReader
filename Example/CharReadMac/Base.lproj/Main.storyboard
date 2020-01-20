@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="15702" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="B8D-0N-5wS">
+<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="B8D-0N-5wS">
     <dependencies>
         <deployment identifier="macosx"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="15702"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="15705"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -729,10 +729,22 @@
                                     <action selector="lineByLineButtonOnTap:" target="XfG-lQ-9wD" id="oZv-TW-Oes"/>
                                 </connections>
                             </button>
+                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="vB7-mD-aZR">
+                                <rect key="frame" x="186" y="110" width="109" height="32"/>
+                                <buttonCell key="cell" type="push" title="CSV Parser" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="heX-2m-O1X">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                                <connections>
+                                    <action selector="parseCSVButtonOnTap:" target="XfG-lQ-9wD" id="hgQ-u6-kz6"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <constraints>
+                            <constraint firstItem="vB7-mD-aZR" firstAttribute="top" secondItem="akN-Ez-tUr" secondAttribute="bottom" constant="20" id="Di9-jY-hOF"/>
                             <constraint firstItem="fc5-4X-H4g" firstAttribute="top" secondItem="m2S-Jp-Qdl" secondAttribute="top" constant="50" id="UGM-Hj-T7A"/>
                             <constraint firstItem="fc5-4X-H4g" firstAttribute="centerX" secondItem="m2S-Jp-Qdl" secondAttribute="centerX" id="ciS-0t-sTp"/>
+                            <constraint firstItem="vB7-mD-aZR" firstAttribute="centerX" secondItem="m2S-Jp-Qdl" secondAttribute="centerX" id="qHd-nr-SPP"/>
                             <constraint firstItem="akN-Ez-tUr" firstAttribute="centerX" secondItem="m2S-Jp-Qdl" secondAttribute="centerX" id="sAv-Sx-cQQ"/>
                             <constraint firstItem="akN-Ez-tUr" firstAttribute="top" secondItem="fc5-4X-H4g" secondAttribute="bottom" constant="20" id="tTa-uG-jDc"/>
                         </constraints>

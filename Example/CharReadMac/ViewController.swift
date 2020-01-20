@@ -7,7 +7,8 @@
 //
 
 import Cocoa
-import SwiftCharReader
+//import SwiftCharReader
+import SwiftCSVParser
 
 final class ViewController: NSViewController {
 
@@ -60,5 +61,132 @@ final class ViewController: NSViewController {
         }
     }
 
+    @IBAction private func parseCSVButtonOnTap(_ sender: NSButton) {
+        let sourceData = getOpeningPath(allowedFileTypes: ["csv"])
+        guard let source = sourceData.0, let newlineType = sourceData.1 else {
+            return
+        }
+        guard var target = getSavingPath(allowedFileTypes: ["html", "htm"]) else {
+            return
+        }
+        if target.pathExtension.count == 0 {
+            target.appendPathExtension("html")
+        }
+        do {
+            try csvToHtml(source: source, sourceType: newlineType, target: target)
+            NSWorkspace.shared.open(target)
+        } catch let err {
+            let alert = NSAlert(error: err)
+            alert.runModal()
+        }
+    }
+
+    private func getOpeningPath(allowedFileTypes: [String]) -> (URL?, String?) {
+        let panel = NSOpenPanel()
+        panel.title = "Open"
+        panel.allowedFileTypes = allowedFileTypes
+        panel.allowsOtherFileTypes = false
+        panel.canCreateDirectories = true
+        panel.canChooseFiles = true
+        panel.isAccessoryViewDisclosed = false
+        let dropButton = NSPopUpButton(frame: NSRect(x: 0, y: 0, width: 100, height: 32))
+        dropButton.addItems(withTitles: ["CRLF", "LF"])
+        dropButton.selectItem(at: 0)
+        panel.accessoryView = dropButton
+        panel.canChooseDirectories = true
+        if panel.runModal() == NSApplication.ModalResponse.OK {
+            return (panel.url, dropButton.selectedItem?.title)
+        }
+        return (nil, nil)
+    }
+
+    private func formatHTML(_ str: String?) -> String {
+        if let s = str {
+            var result = ""
+            let escapes: [Character: String] = ["\n": "<br/>", "&": "&amp;", "<": "&lt;", ">": "&gt;", "\"": "&quot;", "'": "&#39;"]
+            for char in s {
+                if let target = escapes[char] {
+                    result += target
+                } else {
+                    result.append(char)
+                }
+            }
+            return result
+        }
+        return ""
+    }
+
+    private func getSavingPath(allowedFileTypes: [String]) -> URL? {
+        let panel = NSSavePanel()
+        panel.title = "Save to ..."
+        panel.allowsOtherFileTypes = false
+        panel.allowedFileTypes = allowedFileTypes
+        panel.canCreateDirectories = true
+        if panel.runModal() == NSApplication.ModalResponse.OK {
+            return panel.url
+        }
+        return nil
+    }
+
+    private func csvToHtml(source: URL, sourceType: String, target: URL) throws {
+        try """
+<html>
+<head>
+    <meta charset="UTF-8"/>
+    <style>
+    table, th, td {
+        border: 1px solid black;
+        border-collapse: collapse;
+    }
+    body {
+        font-family: sans-serif;
+    }
+    </style>
+</head>
+<body>
+    <table style="width:100%">
+
+""".write(to: target, atomically: true, encoding: .utf8)
+        let writter = try FileHandle(forUpdating: target)
+        defer {
+            if let data = """
+                        </table>
+                    </body>
+                    </html>
+
+                    """.data(using: .utf8) {
+                writter.write(data)
+            }
+            writter.closeFile()
+        }
+        writter.seekToEndOfFile()
+        if let data = """
+                    <tr>
+
+                """.data(using: .utf8) {
+            writter.write(data)
+        }
+        try readCSVUtf8(path: source.path, lineDelimiter: sourceType == "LF" ? kLF : kCRLF, fieldHandle: { (field, row, column) -> Bool in
+            Swift.print("\(row):\(column); ", separator: "", terminator: "")
+            let content = formatHTML(field)
+            let tag = row == 0 ? "th" : "td"
+            if let data = """
+                <\(tag)>\(content)</\(tag)>
+
+                """.data(using: .utf8) {
+                writter.write(data)
+            }
+            return true
+        }, lineHandle: { (row) -> Bool in
+            Swift.print(" End of row \(row)")
+            if let data = """
+                            </tr>
+
+                        """.data(using: .utf8) {
+                writter.write(data)
+            }
+            return true
+        })
+    }
 
 }

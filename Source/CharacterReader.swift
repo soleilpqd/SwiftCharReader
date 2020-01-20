@@ -17,10 +17,27 @@ public enum CharacterReaderError: Error {
     case corruptedData
 }
 
-/// Type for character reader handle closure: (read character, byte count of this character) -> `true` to continue reading
-public typealias CharacterReaderHandleType = (Character, Int) -> Bool
-/// Type for segment reader handle closure: (read segment, byte count of given segment, index of given segment) -> `true` to continue reading
-public typealias SegmentReaderHandleType = (String, Int, Int) -> Bool
+/**
+ Type for character reader handle closure.
+
+ - Parameters:
+   - char: Read character.
+   - count: Length in byte of given character.
+
+ - Returns: `true` to continue reading.
+ */
+public typealias CharacterReaderHandleType = (_ char: Character, _ count: Int) -> Bool
+/**
+ Type for segment reader handle closure.
+
+ - Parameters:
+   - segment: Read segment of text.
+   - count: Length in byte of given text segment.
+   - index: index of given text segment.
+
+ - Returns: `true` to continue reading.
+ */
+public typealias SegmentReaderHandleType = (_ segment: String, _ count: Int, _ index: Int) -> Bool
 
 public let kUtf8SingleBytePrefix: UInt8    = 0b00000000
 public let kUtf8SingleByteFilter: UInt8    = 0b10000000

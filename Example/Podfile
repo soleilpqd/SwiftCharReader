@@ -1,7 +1,8 @@
 use_frameworks!
 
 def shared_pods
-  pod 'SwiftCharReader', :path => '../'
+#  pod 'SwiftCharReader', :path => '../'
+  pod 'SwiftCSVParser', :path => '../'
 end
 
 target 'SwiftCharReader_Example' do
