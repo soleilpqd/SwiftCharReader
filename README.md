@@ -1,9 +1,11 @@
 # SwiftCharReader
 
-Read UTF-8 text file character by character.
+Read text file character by character.
 My purpose is to process string from large text file.
 
-Including a function to parse CSV file using utf8 reader.
+Including a function to parse CSV file using character reader.
+
+Supported encoding: UTF8, UTF16 (BE & LE).
 
 ## Author
 

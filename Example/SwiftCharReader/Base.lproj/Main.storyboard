@@ -20,15 +20,15 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1eL-eh-XJg">
-                                <rect key="frame" x="142.5" y="50" width="90" height="30"/>
-                                <state key="normal" title="Char by Char"/>
+                                <rect key="frame" x="121.5" y="50" width="132" height="30"/>
+                                <state key="normal" title="UTF8 Char by Char"/>
                                 <connections>
                                     <action selector="charByCharButtonOnTap:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="mvL-qf-Ly5"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Pd6-25-NaI">
-                                <rect key="frame" x="148.5" y="100" width="78" height="30"/>
-                                <state key="normal" title="Line by line"/>
+                                <rect key="frame" x="128" y="100" width="119" height="30"/>
+                                <state key="normal" title="UTF8 Line by line"/>
                                 <connections>
                                     <action selector="lineByLineButtonOnTap:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="TIX-rk-6kP"/>
                                 </connections>
@@ -40,14 +40,50 @@
                                     <action selector="csvButtonOnTap:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="kRT-ia-6ku"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hf1-Bm-U7f">
+                                <rect key="frame" x="109.5" y="200" width="156" height="30"/>
+                                <state key="normal" title="UTF16be Char by Char"/>
+                                <connections>
+                                    <action selector="charByCharUtf16beButtonOnTap:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="Jb0-Qi-3nQ"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Nav-SD-ytb">
+                                <rect key="frame" x="116" y="250" width="143" height="30"/>
+                                <state key="normal" title="UTF16be Line by line"/>
+                                <connections>
+                                    <action selector="lineByLineUtf16beButtonOnTap:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="6he-MD-QGa"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HR9-fd-hGJ">
+                                <rect key="frame" x="112" y="300" width="151" height="30"/>
+                                <state key="normal" title="UTF16le Char by Char"/>
+                                <connections>
+                                    <action selector="charByCharUtf16leButtonOnTap:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="t9W-Nr-Eyb"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Tkt-2G-VGg">
+                                <rect key="frame" x="118.5" y="350" width="138" height="30"/>
+                                <state key="normal" title="UTF16le Line by line"/>
+                                <connections>
+                                    <action selector="lineByLineUtf16leButtonOnTap:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="Jl4-uA-H5j"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="Nav-SD-ytb" firstAttribute="centerX" secondItem="kh9-bI-dsS" secondAttribute="centerX" id="0P9-bF-Q0x"/>
+                            <constraint firstItem="Tkt-2G-VGg" firstAttribute="top" secondItem="HR9-fd-hGJ" secondAttribute="bottom" constant="20" id="5xx-KX-OE3"/>
+                            <constraint firstItem="Tkt-2G-VGg" firstAttribute="centerX" secondItem="kh9-bI-dsS" secondAttribute="centerX" id="9pd-F0-tFO"/>
+                            <constraint firstItem="hf1-Bm-U7f" firstAttribute="centerX" secondItem="kh9-bI-dsS" secondAttribute="centerX" id="DeU-YC-4ge"/>
+                            <constraint firstItem="hf1-Bm-U7f" firstAttribute="top" secondItem="mGs-1s-A5I" secondAttribute="bottom" constant="20" id="JWI-Oz-5B3"/>
                             <constraint firstItem="1eL-eh-XJg" firstAttribute="centerX" secondItem="kh9-bI-dsS" secondAttribute="centerX" id="MQT-Rx-tph"/>
+                            <constraint firstItem="HR9-fd-hGJ" firstAttribute="top" secondItem="Nav-SD-ytb" secondAttribute="bottom" constant="20" id="TGR-8a-axF"/>
                             <constraint firstItem="mGs-1s-A5I" firstAttribute="centerX" secondItem="kh9-bI-dsS" secondAttribute="centerX" id="UdC-wn-gHg"/>
                             <constraint firstItem="mGs-1s-A5I" firstAttribute="top" secondItem="Pd6-25-NaI" secondAttribute="bottom" constant="20" id="XJK-B4-ceJ"/>
                             <constraint firstItem="Pd6-25-NaI" firstAttribute="centerX" secondItem="kh9-bI-dsS" secondAttribute="centerX" id="YN2-pU-fL5"/>
+                            <constraint firstItem="HR9-fd-hGJ" firstAttribute="centerX" secondItem="kh9-bI-dsS" secondAttribute="centerX" id="dTJ-0j-gDi"/>
                             <constraint firstItem="Pd6-25-NaI" firstAttribute="top" secondItem="1eL-eh-XJg" secondAttribute="bottom" constant="20" id="gOG-fT-YrV"/>
+                            <constraint firstItem="Nav-SD-ytb" firstAttribute="top" secondItem="hf1-Bm-U7f" secondAttribute="bottom" constant="20" id="haH-Cg-KuP"/>
                             <constraint firstItem="1eL-eh-XJg" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="50" id="iDd-4S-k2w"/>
                         </constraints>
                     </view>

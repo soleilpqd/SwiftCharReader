@@ -40,7 +40,7 @@ private func demoReadUtf8(_ path: String) {
         var lineCount = 0
         var byteCount = 0
         print("BEGIN Line by line:", path)
-        try readUtf8(path: path, delimiter: "\n", handle: { (line, count, index) -> Bool in
+        try readSegments(path: path, delimiter: "\n", handle: { (line, count, index) -> Bool in
             lineCount += 1
             byteCount += count
             print(String(format: "%02d %@", index, line), separator: "", terminator: "")
@@ -111,7 +111,7 @@ private func demoParseCSV(_ path: String) {
                 writter.write(data)
             }
             // sample.csv edited by XCode so new line is LF (not CRLF as standard)
-            try readCSVUtf8(path: path, lineDelimiter: kLF, fieldHandle: { (field, row, column) -> Bool in
+            try readCSV(path: path, lineDelimiter: kLF, fieldHandle: { (field, row, column) -> Bool in
                 print("\(row):\(column); ", separator: "", terminator: "")
                 let content = formatHTML(field)
                 let tag = row == 0 ? "th" : "td"

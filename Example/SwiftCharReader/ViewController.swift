@@ -64,7 +64,7 @@ final class ViewController: UIViewController {
             var lineCount = 0
             var byteCount = 0
             do {
-                try readUtf8(path: path, delimiter: "\n", handle: { (line, count, index) -> Bool in
+                try readSegments(path: path, delimiter: "\n", handle: { (line, count, index) -> Bool in
                     lineCount += 1
                     byteCount += count
                     print(String(format: "%02d %@", index, line), separator: "", terminator: "")
@@ -122,7 +122,7 @@ final class ViewController: UIViewController {
                     writter.write(data)
                 }
                 // sample.csv edited by XCode so new line is LF (not CRLF as standard)
-                try readCSVUtf8(path: path, lineDelimiter: kLF, fieldHandle: { (field, row, column) -> Bool in
+                try readCSV(path: path, lineDelimiter: kLF, fieldHandle: { (field, row, column) -> Bool in
                     print("\(row):\(column); ", separator: "", terminator: "")
                     let content = formatHTML(field)
                     let tag = row == 0 ? "th" : "td"
@@ -150,6 +150,105 @@ final class ViewController: UIViewController {
         }
         print("DONE")
         performSegue(withIdentifier: "WebSegue", sender: nil)
+    }
+
+    @IBAction private func charByCharUtf16beButtonOnTap(_ sender: UIButton) {
+        // `readUtf16be` runs in current thread & non-escaping.
+        // This demo executes `readUtf16be` in a separated thread (using operation queue), print read character on main thread.
+        let operationQueue = OperationQueue()
+        if let path = Bundle.main.path(forResource: "sample-utf16be", ofType: "txt") {
+            print("BEGIN:", path)
+            operationQueue.addOperation {
+                var charCount = 0
+                var byteCount = 0
+                do {
+                    try readUtf16be(path: path) { (char, charLen) -> Bool in
+                        charCount += 1
+                        byteCount += charLen
+                        DispatchQueue.main.async {
+                            print(char, separator: "", terminator: "")
+                        }
+                        return true
+                    }
+                } catch let err {
+                    DispatchQueue.main.async {
+                        print(err)
+                    }
+                }
+                DispatchQueue.main.async {
+                    print("\n => Chars: \(charCount); Bytes: \(byteCount)")
+                }
+            }
+        }
+    }
+
+    @IBAction private func lineByLineUtf16beButtonOnTap(_ sender: UIButton) {
+        if let path = Bundle.main.path(forResource: "sample-utf16be", ofType: "txt") {
+            print("BEGIN:", path)
+            var lineCount = 0
+            var byteCount = 0
+            do {
+                try readSegments(path: path, delimiter: "\n", encoding: .utf16be, handle: { (line, count, index) -> Bool in
+                    lineCount += 1
+                    byteCount += count
+                    print(String(format: "%02d %@", index, line), separator: "", terminator: "")
+                    return true
+                })
+                print("\n => Lines: \(lineCount); Bytes: \(byteCount)")
+            } catch let err {
+                print(err)
+            }
+        }
+    }
+
+    @IBAction private func charByCharUtf16leButtonOnTap(_ sender: UIButton) {
+        // `readUtf16le` runs in current thread & non-escaping.
+        // This demo executes `readUtf16le` in a separated thread (using operation queue), print read character on main thread.
+        let operationQueue = OperationQueue()
+        if let path = Bundle.main.path(forResource: "sample-utf16le", ofType: "txt") {
+            print("BEGIN:", path)
+            operationQueue.addOperation {
+                var charCount = 0
+                var byteCount = 0
+                do {
+                    try readUtf16le(path: path) { (char, charLen) -> Bool in
+                        charCount += 1
+                        byteCount += charLen
+                        DispatchQueue.main.async {
+                            print(char, separator: "", terminator: "")
+                        }
+                        return true
+                    }
+                } catch let err {
+                    DispatchQueue.main.async {
+                        print(err)
+                    }
+                }
+                DispatchQueue.main.async {
+                    print("\n => Chars: \(charCount); Bytes: \(byteCount)")
+                }
+            }
+        }
+    }
+
+    @IBAction private func lineByLineUtf16leButtonOnTap(_ sender: UIButton) {
+        if let path = Bundle.main.path(forResource: "sample-utf16le", ofType: "txt") {
+            print("BEGIN:", path)
+            var lineCount = 0
+            var byteCount = 0
+            do {
+                try readSegments(path: path, delimiter: "\n", encoding: .utf16le, handle: { (line, count, index) -> Bool in
+                    lineCount += 1
+                    byteCount += count
+                    print(String(format: "%02d %@", index, line), separator: "", terminator: "")
+                    return true
+                })
+                print("\n => Lines: \(lineCount); Bytes: \(byteCount)")
+            } catch let err {
+                print(err)
+            }
+        }
+
     }
 
 }

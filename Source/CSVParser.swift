@@ -61,13 +61,13 @@ private func isCharAfterClosingQuoteBelongToLineDelimiter(char: Character, lineD
 
  - Parameters:
    - path: Path to text file.
-   - bufferSize: Buffer size (byte) to load data from file.
+   - bufferSize: Buffer size (byte) to load data from file. Default 4KB.
    - fieldDelimiter: Character separates fields (default as standard is ',').
    - lineDelimiter: Character seperates row (line) (defautl as standard is CRLF).
    - fieldHandle: Closure to handle read field (cell). Return `false` to stop reading (other way: return `true` to continue reading).
    - lineHandle: Closure to handle the end of line. Return `false` to stop reading (other way: return `true` to continue reading).
 */
-public func readCSVUtf8(path: String, bufferSize: Int = 1024, fieldDelimiter: Character = ",", lineDelimiter: String = kCRLF, fieldHandle: CSVFieldHandleType, lineHandle: CSVLineHandleType) throws {
+public func readCSV(path: String, bufferSize: Int = 4096, fieldDelimiter: Character = ",", lineDelimiter: String = kCRLF, encoding: CharacterReaderEncoding = .utf8, fieldHandle: CSVFieldHandleType, lineHandle: CSVLineHandleType) throws {
     var lastCharacter: Character?
     var isQuoted = false
     var isQuoteClosed = false
@@ -77,7 +77,7 @@ public func readCSVUtf8(path: String, bufferSize: Int = 1024, fieldDelimiter: Ch
     var charIndex = 0
     var lineIndex = 0
     var error: NSError?
-    try readUtf8(path: path, handle: { (char, _) -> Bool in
+    let handle: CharacterReaderHandleType = { (char, _) -> Bool in
         var curIsQuoteClosed = false
         if char == fieldDelimiter {
             if isQuoted {
@@ -135,7 +135,15 @@ public func readCSVUtf8(path: String, bufferSize: Int = 1024, fieldDelimiter: Ch
         }
         isQuoteClosed = curIsQuoteClosed
         return true
-    })
+    }
+    switch encoding {
+    case .utf8:
+        try readUtf8(path: path, bufferSize: bufferSize, handle: handle)
+    case .utf16be:
+        try readUtf16be(path: path, bufferSize: bufferSize, handle: handle)
+    case .utf16le:
+        try readUtf16le(path: path, bufferSize: bufferSize, handle: handle)
+    }
     if let err = error {
         throw err
     }

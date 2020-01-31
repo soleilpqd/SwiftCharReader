@@ -7,10 +7,16 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		2B0B83DE23C8D8D700312A7D /* CSVParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B0B83DC23C8D8D700312A7D /* CSVParser.swift */; };
-		2B0B83DF23C8D8D700312A7D /* CharacterReader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B0B83DD23C8D8D700312A7D /* CharacterReader.swift */; };
 		2B937FD523D0A8D900741D9A /* sample.csv in Resources */ = {isa = PBXBuildFile; fileRef = 2B937FD423D0A8D900741D9A /* sample.csv */; };
 		2B937FD923D0BA8100741D9A /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B937FD823D0BA8100741D9A /* WebViewController.swift */; };
+		2BB1CEAE23E2D86800DF4E08 /* Utf8CharacterReader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BB1CEAC23E2D86800DF4E08 /* Utf8CharacterReader.swift */; };
+		2BB1CEB223E2DDFE00DF4E08 /* CSVParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BB1CEB023E2DDFE00DF4E08 /* CSVParser.swift */; };
+		2BB1CEB323E2DDFE00DF4E08 /* Utf16CharacterReader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BB1CEB123E2DDFE00DF4E08 /* Utf16CharacterReader.swift */; };
+		2BB1CEB823E2F8DA00DF4E08 /* CharacterReader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BB1CEB723E2F8D900DF4E08 /* CharacterReader.swift */; };
+		2BB1CEBB23E30DB500DF4E08 /* sample-utf16be.txt in Resources */ = {isa = PBXBuildFile; fileRef = 2BB1CEB923E30DB500DF4E08 /* sample-utf16be.txt */; };
+		2BB1CEBC23E30DB500DF4E08 /* sample-utf16be.txt in Resources */ = {isa = PBXBuildFile; fileRef = 2BB1CEB923E30DB500DF4E08 /* sample-utf16be.txt */; };
+		2BB1CEBD23E30DB500DF4E08 /* sample-utf16le.txt in Resources */ = {isa = PBXBuildFile; fileRef = 2BB1CEBA23E30DB500DF4E08 /* sample-utf16le.txt */; };
+		2BB1CEBE23E30DB500DF4E08 /* sample-utf16le.txt in Resources */ = {isa = PBXBuildFile; fileRef = 2BB1CEBA23E30DB500DF4E08 /* sample-utf16le.txt */; };
 		2BC3E93723C73A6D00424DCF /* sample.txt in Resources */ = {isa = PBXBuildFile; fileRef = 2BC3E93623C73A6D00424DCF /* sample.txt */; };
 		2BDBE77B23C86B5900299EBA /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BDBE77A23C86B5900299EBA /* main.swift */; };
 		2BDBE78823C8761700299EBA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BDBE78723C8761700299EBA /* AppDelegate.swift */; };
@@ -43,10 +49,14 @@
 		11D2AB83C91BE49627553189 /* Pods_SwiftCharReader_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SwiftCharReader_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1D3691871C4969A0343FBB3C /* Pods_CharReadMac.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CharReadMac.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		2B0B83DB23C8D6AD00312A7D /* SwiftCSVParser.podspec */ = {isa = PBXFileReference; lastKnownFileType = text; name = SwiftCSVParser.podspec; path = ../SwiftCSVParser.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
-		2B0B83DC23C8D8D700312A7D /* CSVParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CSVParser.swift; path = ../../Source/CSVParser.swift; sourceTree = "<group>"; };
-		2B0B83DD23C8D8D700312A7D /* CharacterReader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CharacterReader.swift; path = ../../Source/CharacterReader.swift; sourceTree = "<group>"; };
 		2B937FD423D0A8D900741D9A /* sample.csv */ = {isa = PBXFileReference; lastKnownFileType = text; path = sample.csv; sourceTree = "<group>"; };
 		2B937FD823D0BA8100741D9A /* WebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
+		2BB1CEAC23E2D86800DF4E08 /* Utf8CharacterReader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Utf8CharacterReader.swift; path = ../../Source/Utf8CharacterReader.swift; sourceTree = "<group>"; };
+		2BB1CEB023E2DDFE00DF4E08 /* CSVParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CSVParser.swift; path = ../../Source/CSVParser.swift; sourceTree = "<group>"; };
+		2BB1CEB123E2DDFE00DF4E08 /* Utf16CharacterReader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Utf16CharacterReader.swift; path = ../../Source/Utf16CharacterReader.swift; sourceTree = "<group>"; };
+		2BB1CEB723E2F8D900DF4E08 /* CharacterReader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CharacterReader.swift; path = ../../Source/CharacterReader.swift; sourceTree = "<group>"; };
+		2BB1CEB923E30DB500DF4E08 /* sample-utf16be.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "sample-utf16be.txt"; sourceTree = "<group>"; };
+		2BB1CEBA23E30DB500DF4E08 /* sample-utf16le.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "sample-utf16le.txt"; sourceTree = "<group>"; };
 		2BC3E93623C73A6D00424DCF /* sample.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = sample.txt; sourceTree = "<group>"; };
 		2BDBE77823C86B5900299EBA /* CharReadExample */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = CharReadExample; sourceTree = BUILT_PRODUCTS_DIR; };
 		2BDBE77A23C86B5900299EBA /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
@@ -109,8 +119,10 @@
 			isa = PBXGroup;
 			children = (
 				2BDBE77A23C86B5900299EBA /* main.swift */,
-				2B0B83DD23C8D8D700312A7D /* CharacterReader.swift */,
-				2B0B83DC23C8D8D700312A7D /* CSVParser.swift */,
+				2BB1CEB723E2F8D900DF4E08 /* CharacterReader.swift */,
+				2BB1CEAC23E2D86800DF4E08 /* Utf8CharacterReader.swift */,
+				2BB1CEB023E2DDFE00DF4E08 /* CSVParser.swift */,
+				2BB1CEB123E2DDFE00DF4E08 /* Utf16CharacterReader.swift */,
 			);
 			path = "CharReadExample Terminal";
 			sourceTree = "<group>";
@@ -175,6 +187,8 @@
 				607FACD31AFB9204008FA782 /* Supporting Files */,
 				2BC3E93623C73A6D00424DCF /* sample.txt */,
 				2B937FD423D0A8D900741D9A /* sample.csv */,
+				2BB1CEB923E30DB500DF4E08 /* sample-utf16be.txt */,
+				2BB1CEBA23E30DB500DF4E08 /* sample-utf16le.txt */,
 			);
 			name = "Example for SwiftCharReader";
 			path = SwiftCharReader;
@@ -321,8 +335,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2BB1CEBC23E30DB500DF4E08 /* sample-utf16be.txt in Resources */,
 				2BDBE78C23C8761800299EBA /* Assets.xcassets in Resources */,
 				2BDBE79523C8762300299EBA /* sample.txt in Resources */,
+				2BB1CEBE23E30DB500DF4E08 /* sample-utf16le.txt in Resources */,
 				2BDBE78F23C8761800299EBA /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -331,8 +347,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2BB1CEBD23E30DB500DF4E08 /* sample-utf16le.txt in Resources */,
 				607FACDB1AFB9204008FA782 /* Main.storyboard in Resources */,
 				607FACE01AFB9204008FA782 /* LaunchScreen.xib in Resources */,
+				2BB1CEBB23E30DB500DF4E08 /* sample-utf16be.txt in Resources */,
 				2BC3E93723C73A6D00424DCF /* sample.txt in Resources */,
 				607FACDD1AFB9204008FA782 /* Images.xcassets in Resources */,
 				2B937FD523D0A8D900741D9A /* sample.csv in Resources */,
@@ -430,8 +448,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				2BDBE77B23C86B5900299EBA /* main.swift in Sources */,
-				2B0B83DE23C8D8D700312A7D /* CSVParser.swift in Sources */,
-				2B0B83DF23C8D8D700312A7D /* CharacterReader.swift in Sources */,
+				2BB1CEAE23E2D86800DF4E08 /* Utf8CharacterReader.swift in Sources */,
+				2BB1CEB223E2DDFE00DF4E08 /* CSVParser.swift in Sources */,
+				2BB1CEB823E2F8DA00DF4E08 /* CharacterReader.swift in Sources */,
+				2BB1CEB323E2DDFE00DF4E08 /* Utf16CharacterReader.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
